@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nghiệm Gần Đúng - A Mathematical Love Story</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400&family=Source+Code+Pro:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                processEscapes: true,
+                processEnvironments: true,
+                skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+                ignoreClass: 'tex2jax_ignore',
+                processClass: 'tex2jax_process'
+            },
+            "HTML-CSS": {
+                styles: {
+                    ".MathJax_Display": {
+                        "margin": "1em 0em",
+                        "color": "#ffd700 !important"
+                    },
+                    ".MathJax": {
+                        "color": "#ffd700 !important"
+                    }
+                }
+            },
+            showMathMenu: false,
+            showProcessingMessages: false,
+            messageStyle: "none"
+        });
+        
+        MathJax.Hub.Queue(function () {
+            console.log('MathJax 2.7 loaded and configured!');
+        });
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.3.0/math.min.js"></script>
+    <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Hero Section -->
+        <section class="hero" id="hero">
+            <div class="hero-content">
+                <h1 class="main-title fade-in">Nghiệm Gần Đúng</h1>
+                <p class="subtitle fade-in-delay">Câu chuyện của Trần Mạnh Dũng & Trần Minh Thư</p>
+                <div class="scroll-indicator">
+                    <div class="mouse">
+                        <div class="scroll-wheel"></div>
+                    </div>
+                </div>
+            </div>
+            <canvas id="hero-canvas"></canvas>
+        </section>
+
+        <!-- Story Section 1: The Beginning -->
+        <section class="story-section" id="section1">
+            <div class="content-wrapper">
+                <div class="text-content">
+                    <h2 class="section-title">Khởi đầu với niềm tin</h2>
+                    <p class="story-text">
+                        Hồi mới quen, anh từng nói với em rằng, trong toán học, lúc nào cũng có đáp án. 
+                        Nhưng giờ, học xong rồi, anh mới hiểu — có những bài toán không thể tìm ra nghiệm trực tiếp."
+                    </p>
+                    <div class="math-formula">
+                        $$f(x) = ax + b \quad \Rightarrow \quad x = \frac{-b}{a}$$
+                        <p style="text-align: center; margin-top: 0.5rem; font-size: 0.9rem; opacity: 0.8;">Nghiệm tường minh - Đơn giản và rõ ràng</p>
+                    </div>
+                </div>
+                <div class="visualization-container">
+                    <canvas id="simple-function-chart"></canvas>
+                    <p class="chart-caption">Hàm số đơn giản - Nghiệm tường minh</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Story Section 2: Iterative Methods -->
+        <section class="story-section" id="section2">
+            <div class="content-wrapper">
+                <div class="visualization-container">
+                    <canvas id="iteration-chart"></canvas>
+                    <p class="chart-caption">Phương pháp lặp - Dần dần hội tụ</p>
+                </div>
+                <div class="text-content">
+                    <h2 class="section-title">Phương pháp lặp</h2>
+                    <p class="story-text">
+                        Người ta phải đi từng bước, lặp lại một công thức, thử sai rồi sửa, 
+                        cho đến khi điều kiện dần được thỏa mãn. Và đôi khi, kết quả cuối cùng vẫn chẳng phải nghiệm chính xác, 
+                        chỉ là nghiệm gần đúng mà thôi.
+                    </p>
+                    <div class="math-formula">
+                        $$x_{n+1} = g(x_n) \quad \text{với} \quad |x_{n+1} - x_n| < \varepsilon$$
+                        <p style="text-align: center; margin-top: 0.5rem; font-size: 0.9rem; opacity: 0.8;">Phương pháp lặp - Hội tụ dần về nghiệm</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Story Section 3: Complex Functions -->
+        <section class="story-section" id="section3">
+            <div class="content-wrapper">
+                <div class="text-content">
+                    <h2 class="section-title">Hàm số phức tạp</h2>
+                    <p class="story-text">
+                        Hàm số càng phức tạp, việc tìm nghiệm càng khó. Có những nghiệm không phải tối ưu nhất, 
+                        chỉ là cực trị cục bộ — những điểm dừng khiến ta tưởng rằng mình đã chạm đến kết quả, 
+                        nhưng thật ra chỉ mới ở lưng chừng.
+                    </p>
+                    <div class="math-formula">
+                        $$\nabla f(x) = 0 \quad \text{nhưng} \quad \nabla^2 f(x) \neq 0$$
+                        <p style="text-align: center; margin-top: 0.5rem; font-size: 0.9rem; opacity: 0.8;">Cực trị cục bộ - Không phải lúc nào cũng tối ưu</p>
+                    </div>
+                </div>
+                <div class="visualization-container">
+                    <canvas id="complex-function-chart"></canvas>
+                    <p class="chart-caption">Hàm phức tạp - Cực trị cục bộ vs toàn cục</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Story Section 4: The Realization -->
+        <section class="story-section" id="section4">
+            <div class="content-wrapper">
+                <div class="visualization-container">
+                    <canvas id="optimization-chart"></canvas>
+                    <p class="chart-caption">Quá trình tối ưu hóa - Learning curve</p>
+                </div>
+                <div class="text-content">
+                    <h2 class="section-title">Nhận ra</h2>
+                    <p class="story-text">
+                        Giống như anh với em vậy đó. Lúc đầu, anh tưởng chỉ cần cố gắng là đủ, 
+                        tưởng tình yêu cũng có thể giải ra bằng một phép biến đổi đúng đắn. 
+                        Nhưng rồi anh nhận ra, tình cảm cũng như một bài toán phi tuyến — quá nhiều biến, 
+                        và mỗi biến lại ảnh hưởng lẫn nhau.
+                    </p>
+                    <div class="math-formula">
+                        $$\mathcal{L} = \frac{1}{2}||f(x_1, x_2, ..., x_n) - y||^2$$
+                        <p style="text-align: center; margin-top: 0.5rem; font-size: 0.9rem; opacity: 0.8;">Hàm mất mát - Nhiều biến, tương tác phức tạp</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Story Section 5: Local Optimum -->
+        <section class="story-section" id="section5">
+            <div class="content-wrapper">
+                <div class="text-content">
+                    <h2 class="section-title">Cực trị địa phương</h2>
+                    <p class="story-text">
+                        Anh từng nghĩ mình đã tìm được nghiệm tối ưu, rồi chợt hiểu, có lẽ anh chỉ dừng lại ở một cực trị địa phương nào đó. 
+                        Nếu khi ấy, anh thay đổi phương pháp, chạy thêm vài vòng lặp, điều chỉnh lại tham số, 
+                        giảm bước nhảy hay tăng một chút kiên nhẫn...
+                    </p>
+                    <div class="math-formula">
+                        $$x_{t+1} = x_t - \eta \nabla f(x_t)$$
+                        <p style="text-align: center; margin-top: 0.5rem; font-size: 0.9rem; opacity: 0.8;">Gradient Descent - Cần learning rate $\eta$ phù hợp</p>
+                    </div>
+                </div>
+                <div class="visualization-container">
+                    <canvas id="gradient-descent-chart"></canvas>
+                    <p class="chart-caption">Gradient Descent - Tránh cực trị cục bộ</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Story Section 6: New Beginning -->
+        <section class="story-section" id="section6">
+            <div class="content-wrapper">
+                <div class="visualization-container">
+                    <canvas id="convergence-chart"></canvas>
+                    <p class="chart-caption">Hội tụ về nghiệm toàn cục</p>
+                </div>
+                <div class="text-content">
+                    <h2 class="section-title">Khởi đầu mới</h2>
+                    <p class="story-text">
+                        ...biết đâu, anh đã hội tụ về nghiệm toàn cục — là em.
+                        Bây giờ, anh không còn muốn tìm đáp án nhanh nữa. 
+                        Anh chỉ muốn khởi tạo lại từ đầu, với giá trị ban đầu là em, 
+                        và cứ để hàm mất mát của khoảng cách giữa hai mình tự giảm dần theo thời gian.
+                    </p>
+                    <div class="math-formula">
+                        $$\lim_{t \to \infty} ||\text{anh}(t) - \text{em}(t)|| \to 0$$
+                        <p style="text-align: center; margin-top: 0.5rem; font-size: 0.9rem; opacity: 0.8;">Hội tụ về tình yêu - Khoảng cách tiến về 0</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final Section -->
+        <section class="final-section" id="final">
+            <div class="final-content">
+                <h2 class="final-title">$$f(t) = \text{love}(t) \to \infty$$</h2>
+                <p class="final-text">Với $$t \to \text{thời gian bên em}$$</p>
+                <canvas id="love-function-chart"></canvas>
+                <p class="dedication">Dành tặng Minh Thư ❤️</p>
+
+                <!-- Debug button - hidden by default -->
+                <button id="refresh-math" style="margin-top: 20px; padding: 10px 20px; background: rgba(255, 215, 0, 0.2); border: 1px solid #ffd700; border-radius: 5px; color: #ffd700; cursor: pointer; display: none;">
+                    Refresh Math Formulas
+                </button>
+            </div>
+        </section>
+    </div>
+
+    <audio id="bg-music" loop>
+        <!-- Gợi ý: Thay thế "placeholder-music.mp3" bằng đường dẫn tới file nhạc lãng mạn của bạn -->
+        <source src="placeholder-music.mp3" type="audio/mpeg">
+    </audio>
+    <button id="mute-btn">🔇</button>
+
+    <script src="script.js"></script>
+</body>
+</html>

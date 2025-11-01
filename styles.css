@@ -1,0 +1,423 @@
+/* Mathematical Love Story Styles */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Lora', 'Georgia', serif;
+    line-height: 1.6;
+    color: #4a4a4a;
+    background: linear-gradient(125deg, #f7d8e2 0%, #d9e7f9 100%);
+    overflow-x: hidden;
+}
+
+.container {
+    position: relative;
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background-image: linear-gradient(125deg, rgba(247, 216, 226, 0.85), rgba(217, 231, 249, 0.85)), url('photos/Gemini_Generated_Image_7t9d9l7t9d9l7t9d.png');
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.hero-content {
+    text-align: center;
+    z-index: 2;
+    position: relative;
+}
+
+.main-title {
+    font-size: 4.5rem;
+    font-weight: 300;
+    margin-bottom: 1rem;
+    background: linear-gradient(45deg, #e85a71, #ff8a8a, #f7b977);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 0 20px rgba(232, 90, 113, 0.2);
+}
+
+.subtitle {
+    font-size: 1.4rem;
+    opacity: 0.8;
+    font-style: italic;
+    color: #5a5a7a;
+    margin-bottom: 3rem;
+}
+
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 2s ease forwards;
+}
+
+.fade-in-delay {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 2s ease 0.5s forwards;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Hero Canvas Background */
+#hero-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: 0.3;
+}
+
+/* Scroll Indicator */
+.scroll-indicator {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.mouse {
+    width: 25px;
+    height: 40px;
+    border: 2px solid #e85a71;
+    border-radius: 60px;
+    position: relative;
+    animation: bounce 2s infinite;
+}
+
+.scroll-wheel {
+    width: 3px;
+    height: 6px;
+    background: #e85a71;
+    border-radius: 25%;
+    position: absolute;
+    top: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: scroll 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 53%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+    40%, 43% { transform: translateX(-50%) translateY(-15px); }
+    70% { transform: translateX(-50%) translateY(-10px); }
+    90% { transform: translateX(-50%) translateY(-4px); }
+}
+
+@keyframes scroll {
+    0% { opacity: 1; transform: translateX(-50%) translateY(0); }
+    100% { opacity: 0; transform: translateX(-50%) translateY(15px); }
+}
+
+/* Story Sections */
+.story-section {
+    min-height: 90vh;
+    padding: 4rem 2rem;
+    display: flex;
+    align-items: center;
+    position: relative;
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(12px);
+    visibility: visible;
+    opacity: 1;
+}
+
+.story-section:nth-child(even) {
+    background: rgba(255, 255, 255, 0.7);
+}
+
+.content-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.content-wrapper.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.text-content {
+    padding: 2rem;
+}
+
+.section-title {
+    font-size: 2.8rem;
+    margin-bottom: 2rem;
+    color: #e85a71;
+    font-weight: 300;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(45deg, #e85a71, #ff8a8a);
+    border-radius: 2px;
+}
+
+.story-text {
+    font-size: 1.3rem;
+    line-height: 1.8;
+    color: #333;
+    text-align: justify;
+    text-indent: 2rem;
+    position: relative;
+}
+
+.story-text::before {
+    content: '"';
+    font-size: 4rem;
+    position: absolute;
+    left: -2rem;
+    top: -1rem;
+    color: #e85a71;
+    opacity: 0.7;
+    font-family: serif;
+}
+
+/* Visualization Containers */
+.visualization-container {
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    border: 1px solid rgba(232, 90, 113, 0.2);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.visualization-container:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.visualization-container canvas {
+    width: 100%;
+    height: 280px;
+    max-height: 280px;
+    border-radius: 10px;
+}
+
+.chart-caption {
+    text-align: center;
+    margin-top: 1rem;
+    font-style: italic;
+    color: #5a5a7a;
+    font-size: 1rem;
+}
+
+/* Final Section */
+.final-section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: linear-gradient(125deg, #f7d8e2, #d9e7f9, #f9e4d7, #d2f2f7);
+    background-size: 400% 400%;
+    animation: gradientShift 10s ease infinite;
+    position: relative;
+}
+
+.final-content {
+    max-width: 800px;
+    padding: 3rem;
+}
+
+.final-title {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    color: #e85a71;
+    text-shadow: 0 0 15px rgba(232, 90, 113, 0.2);
+    font-family: 'Source Code Pro', 'Courier New', monospace;
+}
+
+.final-text {
+    font-size: 1.5rem;
+    margin-bottom: 3rem;
+    color: #5a5a7a;
+    font-style: italic;
+}
+
+#love-function-chart {
+    width: 100%;
+    height: 350px;
+    max-height: 350px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+}
+
+/* Mathematical Formulas */
+.math-formula {
+    font-family: 'Source Code Pro', 'Courier New', monospace;
+    background: rgba(255, 215, 0, 0.1);
+    padding: 1.5rem;
+    border-radius: 10px;
+    border-left: 4px solid #ffd700;
+    margin: 1.5rem 0;
+    font-size: 1.2rem;
+    text-align: center;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 215, 0, 0.3);
+}
+
+.math-formula .MathJax {
+    font-size: 1.4em !important;
+    color: #333 !important;
+}
+
+.math-formula .MathJax_Display {
+    margin: 0.5em 0 !important;
+    color: #333 !important;
+}
+
+.math-formula .MathJax span {
+    color: #333 !important;
+}
+
+/* Fallback for when MathJax is loading */
+.math-formula:not(.MathJax_Processed) {
+    font-family: 'Source Code Pro', monospace;
+    color: #e85a71;
+    min-height: 50px;
+}
+
+/* Style for rendered MathJax elements */
+.MathJax_Display {
+    color: #333 !important;
+}
+
+.MathJax {
+    color: #333 !important;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .main-title {
+        font-size: 3rem;
+    }
+    
+    .content-wrapper {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .section-title {
+        font-size: 2.2rem;
+    }
+    
+    .story-text {
+        font-size: 1.1rem;
+    }
+    
+    .story-section {
+        padding: 2rem 1rem;
+    }
+    
+    .visualization-container canvas {
+        height: 250px;
+    }
+}
+
+/* Particle Animation for Background */
+@keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    33% { transform: translateY(-30px) rotate(120deg); }
+    66% { transform: translateY(30px) rotate(240deg); }
+}
+
+.particle {
+    position: absolute;
+    background: rgba(232, 90, 113, 0.15);
+    border-radius: 50%;
+    animation: float 6s ease-in-out infinite;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(247, 216, 226, 0.5);
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(45deg, #e85a71, #ff8a8a);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(45deg, #ff8a8a, #e85a71);
+}
+
+/* New Styles for Personalization */
+
+.dedication {
+    margin-top: 2rem;
+    font-size: 1.2rem;
+    font-style: italic;
+    color: #5a5a7a;
+}
+
+#mute-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: rgba(255, 255, 255, 0.7);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 1000;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+#mute-btn:hover {
+    transform: scale(1.1);
+    background: white;
+}
